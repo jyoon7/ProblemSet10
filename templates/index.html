@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>Search for Entertainment Venues in Boston</h1>
+    <form action="/search" method="post">
+        <input type="text" autocomplete="off" autofocus name="name" placeholder="Something">
+        <select name="categories">
+            <option disabled selected value="">Category</option>
+            <option value="LICCATDESC">LICCATDESC</option>
+            <option value="DBANAME">DBANAME</option>
+            <option value="Neighborhood">Neighborhood</option>
+            <option value="CITY">CITY</option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+<!-- 
+    <script>
+        document.querySelector('form').onsubmit = function() {
+            if (!document.querySelector('input').value) {
+                alert('You must type something');
+                return false;
+            }
+            else if (!document.querySelector('select').value) {
+                alert('You must choose a category');
+                return false;
+            }
+            return true;
+        };
+    </script> -->
+{% endblock %}

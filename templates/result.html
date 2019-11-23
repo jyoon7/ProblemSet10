@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- Display user's input for "category" and "keyword" at top of page -->
+<h1>Category: {{ category }} / Keyword: {{ keyword }}</h1>
+    <!-- Result if "venues" list is not empty -->
+    {% if venues|length %}
+        <ul>
+            <!-- List necessary info for each venue on "venues" list -->
+            {% for venue in venues %}
+                <li><b>{{ venue[8] }}</b> is located at: {{ venue[21] }} {{ venue [23] }}, {{ venue [24] }}, {{ venue [25] }}, 0{{ venue [26] }}.</li>
+                <br />
+            {% endfor %}
+        <!-- Link back to main page -->
+        <p><a href="/">Return to search</a></p>
+        </ul>
+    <!-- Result if "venues" list is empty -->
+    {% else %}
+        <p>No results</p>
+        <p><a href="/">Return to search</a></p>
+    {% endif %}
+{% endblock %}
