@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
+    <!-- Form asking user to input a keyword and select a category -->
     <h1>Search for Entertainment Venues in Boston</h1>
     <form action="/search" method="post">
         <input type="text" autocomplete="off" autofocus name="name" placeholder="Something">
@@ -13,7 +14,8 @@
         </select>
         <input type="submit" value="Search">
     </form>
-<!-- 
+
+        <!-- Return error if no category or keyword -->
     <script>
         document.querySelector('form').onsubmit = function() {
             if (!document.querySelector('input').value) {
@@ -26,5 +28,5 @@
             }
             return true;
         };
-    </script> -->
+    </script>
 {% endblock %}
