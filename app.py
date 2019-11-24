@@ -17,8 +17,6 @@ def search():
     category = str(request.form.get("categories"))
 
     # Return error if no keyword or category is given (and no javascript)
-    
-    # THIS LINE DOES NOT WORK IF USER INPUTS KEYWORD BUT NO CATEGORY
     if not keyword:
         return render_template("failure.html")
     if category == "None":
