@@ -28,6 +28,6 @@ To learn how to create web app using Flask.
 run with "flask run"
 
 ## Problems
-app.py is unable to detect if user chose a category or not (works fine in index.html through javascript).
+None
 
 
