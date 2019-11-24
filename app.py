@@ -19,8 +19,10 @@ def search():
     # Return error if no keyword or category is given (and no javascript)
     
     # THIS LINE DOES NOT WORK IF USER INPUTS KEYWORD BUT NO CATEGORY
-    if not keyword or not category:
+    if not keyword:
         return render_template("failure.html")
+    if category == "None":
+        return render_template("failure.html") 
 
     # Set integer "row" to the corresponding column number in the .cvs file (to search for the keyword within column)
     if category == "LICCATDESC":
