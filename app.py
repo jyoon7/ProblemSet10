@@ -9,7 +9,8 @@ def index():
 
 @app.route("/search", methods=["POST"])
 def search():
-    # Create blank list. Also refreshes list on every search
+    # Temporary list for search results, and a final list without duplicates
+    temp = []
     venues = []
 
     # Convert input from the form into string
@@ -20,7 +21,7 @@ def search():
     if not keyword:
         return render_template("failure.html")
     if category == "None":
-        return render_template("failure.html") 
+        return render_template("failure.html")
 
     # Set integer "row" to the corresponding column number in the .cvs file (to search for the keyword within column)
     if category == "LICCATDESC":
@@ -38,9 +39,15 @@ def search():
     all_venues = list(reader)
 
     #Search for keyword in .csv, and append "venues" list with matching rows
-    for find in all_venues:
-        if keyword.capitalize() in find[row]:
-            venues.append(find)
+    for x in all_venues:
+        if keyword.capitalize() in x[row]:
+                temp.append(x)
+
+
+    for y in range((len(temp))-1):
+        if temp[y][8] not in temp[y+1][8]:
+            venues.append(temp[y])
+            
     
     # Return "venues" list to results.html
     return render_template("result.html", venues=venues, category = category, keyword = keyword)
