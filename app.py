@@ -43,7 +43,7 @@ def search():
         if keyword.capitalize() in x[row]:
                 temp.append(x)
 
-
+    # Remove duplicates and add it to final results list
     for y in range((len(temp))-1):
         if temp[y][8] not in temp[y+1][8]:
             venues.append(temp[y])
